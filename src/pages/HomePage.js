@@ -52,6 +52,8 @@ import jwt_decode from "jwt-decode";
 import { Users } from "./users/users";
 import { AddUser } from "./users/addUser";
 import welcome from "./welcome";
+import { Leaves } from "./userLeaves";
+import AddLeave from "./userLeaves/createLeave";
 const token = JSON.parse(localStorage.getItem("token"));
 let decoded = null;
 if (token !== null) decoded = jwt_decode(token);
@@ -138,6 +140,7 @@ export default function muRoutes() {
             path={Routes.ForgotPassword.path}
             component={ForgotPassword}
           />
+
           <RouteWithLoader
             exact
             path={Routes.ResetPassword.path}
@@ -290,16 +293,22 @@ export default function muRoutes() {
             path={Routes.DocsChangelog.path}
             component={DocsChangelog}
           />
+          <RouteWithSidebar exact path="/leaves" component={Leaves} />
 
           <Redirect to={Routes.NotFound.path} />
         </Switch>
       ) : decoded !== null && decoded.role === "Employee" ? (
         <Switch>
-          <RouteWithSidebar
+          <RouteWithSidebar exact path={"/pres"} component={Presentation} />
+          <RouteWithSidebar exact path="/leaves" component={Leaves} />
+          <RouteWithSidebar exact path="/newleave" component={AddLeave} />
+
+          <RouteWithLoader
             exact
-            path={"/pres"}
-            component={Presentation}
+            path={Routes.NotFound.path}
+            component={NotFoundPage}
           />
+
           <Redirect to={Routes.NotFound.path} />
         </Switch>
       ) : (

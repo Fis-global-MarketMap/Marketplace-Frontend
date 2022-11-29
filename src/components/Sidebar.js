@@ -88,7 +88,6 @@ export default (props = {}) => {
     const navItemClassName = link === pathname ? "active" : "";
     const linkProps = external ? { href: link } : { as: Link, to: link };
 
-
     return (
       <Nav.Item className={navItemClassName} onClick={() => setShow(false)}>
         <Nav.Link {...linkProps} target={target} className={classNames}>
@@ -191,11 +190,6 @@ export default (props = {}) => {
                 <NavItem title="3S - TMA" />
                 <NavItem title="Users" link="/Users" icon={faUsers} />
                 <NavItem title="Leaves" link="/leaves" icon={faCalendarAlt} />
-                <NavItem
-                  title="Medical leaves"
-                  link="/mleaves"
-                  icon={faCalendarAlt}
-                />
                 <NavItem title="My profile" link="/profile" icon={faUser} />
               </Nav>
             ) : decoded?.role === "Employee" ? (
@@ -203,11 +197,7 @@ export default (props = {}) => {
                 <img src={Logo} alt="logo" className="logo" />
                 <NavItem title="3S - TMA" />
                 <NavItem title="Leaves" link="/leaves" icon={faCalendarAlt} />
-                <NavItem
-                  title="Medical leaves"
-                  link="/mleaves"
-                  icon={faCalendarAlt}
-                />
+
                 <NavItem title="My profile" link="/profile" icon={faUser} />
               </Nav>
             ) : (
