@@ -25,7 +25,7 @@ import DocsLicense from "./documentation/DocsLicense";
 import DocsFolderStructure from "./documentation/DocsFolderStructure";
 import DocsBuild from "./documentation/DocsBuild";
 import DocsChangelog from "./documentation/DocsChangelog";
-
+import Home from "./home";
 // components
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
@@ -130,10 +130,10 @@ export default function muRoutes() {
     <>
       {decoded !== null && decoded.role === "superAdmin" ? (
         <Switch>
-          <RouteWithLoader
+          <RouteWithSidebar
             exact
-            path={Routes.Presentation.path}
-            component={Presentation}
+            path={"/"}
+            component={Users}
           />
           <RouteWithLoader exact path={Routes.Signin.path} component={Signin} />
           <RouteWithLoader exact path={Routes.Signup.path} component={Signup} />
@@ -307,7 +307,7 @@ export default function muRoutes() {
         </Switch>
       ) : decoded !== null && decoded.role === "Employee" ? (
         <Switch>
-          <RouteWithSidebar exact path={"/pres"} component={Presentation} />
+          <RouteWithSidebar exact path={"/pres"} component={Home} />
           <RouteWithSidebar exact path="/leaves" component={Leaves} />
           <RouteWithSidebar exact path="/newleave" component={AddLeave} />
 

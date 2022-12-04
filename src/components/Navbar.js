@@ -8,6 +8,7 @@ import jwt_decode from "jwt-decode";
 
 import NOTIFICATIONS_DATA from "../data/notifications";
 import Profile3 from "../assets/img/team/profile-picture-3.jpg";
+import { useHistory } from "react-router-dom";
 
 
 export default (props) => {
@@ -19,6 +20,7 @@ export default (props) => {
       setNotifications(notifications.map(n => ({ ...n, read: true })));
     }, 300);
   };
+  const history = useHistory();
   const token = JSON.parse(localStorage.getItem("token"));
   let decoded = null;
   if (token !== null) decoded = jwt_decode(token);
@@ -77,7 +79,7 @@ export default (props) => {
                 </div>
               </Dropdown.Toggle>
               <Dropdown.Menu className="user-dropdown dropdown-menu-right mt-2">
-                <Dropdown.Item className="fw-bold">
+                <Dropdown.Item onClick={(e) => history.push("/profile")} className="fw-bold">
                   <FontAwesomeIcon icon={faUserCircle} className="me-2" /> My Profile
                 </Dropdown.Item>
 
