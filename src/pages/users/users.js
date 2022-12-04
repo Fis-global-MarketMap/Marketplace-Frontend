@@ -31,6 +31,7 @@ import {
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const Users = () => {
   const [users, setUsers] = React.useState([]);
@@ -50,6 +51,31 @@ export const Users = () => {
 
     fetchData();
   }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          await axios.delete(`http://localhost:3000/users/delete/${id}`);
+          const { data: response } = await axios.get(
+            "http://localhost:3000/users/all"
+          );
+          setUsers(response);
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        }
+      });
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
 
   return (
     <>
@@ -96,9 +122,8 @@ export const Users = () => {
                 <th className="border-bottom">#</th>
                 <th className="border-bottom">name</th>
                 <th className="border-bottom">email</th>
+                <th className="border-bottom">phone</th>
                 <th className="border-bottom">role</th>
-                <th className="border-bottom">Total</th>
-                <th className="border-bottom">Status</th>
                 <th className="border-bottom">Action</th>
               </tr>
             </thead>
@@ -123,8 +148,37 @@ export const Users = () => {
                   <td>{user?.name}</td>
                   <td>{user?.email}</td>
                   <td>{user?.phone}</td>
-                  <td>{user?.address}</td>
-                  <td>{user?.city}</td>
+                  <td>{user?.role}</td>
+                  <td>
+                    <Dropdown as={ButtonGroup}>
+                      <Dropdown.Toggle
+                        as={Button}
+                        split
+                        variant="link"
+                        className="text-dark m-0 p-0"
+                      >
+                        <span className="icon icon-sm">
+                          <FontAwesomeIcon icon={faEllipsisH} />
+                        </span>
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item
+                          className="text-dark"
+                          onClick={(e) => history.push("/profile/" + user?._id)}
+                        >
+                          <FontAwesomeIcon icon={faEye} className="me-2" /> View
+                          Profile
+                        </Dropdown.Item>
+                        <Dropdown.Item
+                          className="text-dark"
+                          onClick={(e) => handleDelete(user?._id)}
+                        >
+                          <FontAwesomeIcon icon={faTrashAlt} className="me-2" />{" "}
+                          Delete
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </td>
                 </tr>
               ))}
             </tbody>

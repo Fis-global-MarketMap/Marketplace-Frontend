@@ -187,17 +187,16 @@ export default (props = {}) => {
             {decoded?.role === "superAdmin" ? (
               <Nav className="flex-column pt-3 pt-md-0">
                 <img src={Logo} alt="logo" className="logo" />
-                <NavItem title="3S - TMA" />
+                <Button className="mt-3 mb-3"  variant="warning">3S- Team Managment APP</Button>
+                
                 <NavItem title="Users" link="/Users" icon={faUsers} />
                 <NavItem title="Leaves" link="/leaves" icon={faCalendarAlt} />
-                <NavItem title="My profile" link="/profile" icon={faUser} />
               </Nav>
             ) : decoded?.role === "Employee" ? (
               <Nav className="flex-column pt-3 pt-md-0">
                 <img src={Logo} alt="logo" className="logo" />
-                <NavItem title="3S - TMA" />
+                <Button className="mb-2 mt-2"  variant="warning">3S- Team Managment APP</Button>
                 <NavItem title="Leaves" link="/leaves" icon={faCalendarAlt} />
-
                 <NavItem title="My profile" link="/profile" icon={faUser} />
               </Nav>
             ) : (
@@ -205,7 +204,7 @@ export default (props = {}) => {
                 <img src={Logo} alt="logo" className="logo" />
               </Nav>
             )}
-            -
+            
           </div>
         </SimpleBar>
       </CSSTransition>

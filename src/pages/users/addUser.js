@@ -44,7 +44,7 @@ export const AddUser = () => {
     mydata.append("image", formData.image);
     mydata.append("phone", formData.phone);
     mydata.append("role", formData.role);
-    mydata.append("departement", formData.departement);
+    mydata.append("department", formData.departement);
     mydata.append("job", formData.job);
 
     /*     mydata.append("latitude", position.lat);

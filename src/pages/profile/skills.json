@@ -1,0 +1,42 @@
+[
+    {
+        "name": "javascript",
+        "label": "javascript"
+    },
+    {
+        "name": "c++",
+        "label": "c++"
+    },
+    {
+        "name": "c#",
+        "label": "c#"
+    },
+    {
+        "name": "java",
+        "label": "java"
+    },
+    {
+        "name": "python",
+        "label": "python"
+    },
+    {
+        "name": "php",
+        "label": "php"
+    },
+    {
+        "name": "ruby",
+        "label": "ruby"
+    },
+    {
+        "name": "perl",
+        "label": "perl"
+    },
+    {
+        "name": "scala",
+        "label": "scala"
+    },
+    {
+        "name": "go",
+        "label": "go"
+    }
+]

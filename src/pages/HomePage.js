@@ -54,6 +54,8 @@ import { AddUser } from "./users/addUser";
 import welcome from "./welcome";
 import { Leaves } from "./userLeaves";
 import AddLeave from "./userLeaves/createLeave";
+import Profile from "./profile";
+
 const token = JSON.parse(localStorage.getItem("token"));
 let decoded = null;
 if (token !== null) decoded = jwt_decode(token);
@@ -294,6 +296,12 @@ export default function muRoutes() {
             component={DocsChangelog}
           />
           <RouteWithSidebar exact path="/leaves" component={Leaves} />
+          
+          <RouteWithSidebar
+            exact
+            path="/profile/:id"
+            component={Profile}
+          />
 
           <Redirect to={Routes.NotFound.path} />
         </Switch>
@@ -307,6 +315,12 @@ export default function muRoutes() {
             exact
             path={Routes.NotFound.path}
             component={NotFoundPage}
+          />
+
+          <RouteWithSidebar
+            exact
+            path="/profile"
+            component={Profile}
           />
 
           <Redirect to={Routes.NotFound.path} />
