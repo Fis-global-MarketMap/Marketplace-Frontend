@@ -1,7 +1,7 @@
 {
-  "name": "@themesberg/volt-react-dashboard",
-  "description": "Volt React Dashboard is a free and open source admin dashboard template powered by React.js and Bootstrap 5",
-  "author": "Themesberg",
+  "name": "@Dhaker12/TMA-dashboard",
+  "description": "TMA Dashboard is a Team management Application for 3S Employee ",
+  "author": "Dhaker",
   "keywords": [
     "bootstrap 5",
     "react",
@@ -14,13 +14,10 @@
     "themesberg"
   ],
   "license": "MIT",
-  "homepage": "https://demo.themesberg.com/volt-react-dashboard",
-  "bugs": {
-    "url": "https://github.com/themesberg/volt-react-dashboard/issues"
-  },
+  "homepage": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/themesberg/volt-react-dashboard"
+    "url": "https://github.com/Dhaker12/3S-Front"
   },
   "version": "1.0.1",
   "dependencies": {

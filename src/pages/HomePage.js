@@ -54,6 +54,7 @@ import { AddUser } from "./users/addUser";
 import welcome from "./welcome";
 import { Leaves } from "./userLeaves";
 import AddLeave from "./userLeaves/createLeave";
+
 const token = JSON.parse(localStorage.getItem("token"));
 let decoded = null;
 if (token !== null) decoded = jwt_decode(token);
