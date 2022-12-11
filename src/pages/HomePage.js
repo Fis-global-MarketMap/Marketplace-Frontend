@@ -308,6 +308,9 @@ export default function muRoutes() {
       ) : decoded !== null && decoded.role === "Employee" ? (
         <Switch>
           <RouteWithSidebar exact path={"/pres"} component={Home} />
+          <RouteWithSidebar exact path={"/"} component={Home} />
+
+
           <RouteWithSidebar exact path="/leaves" component={Leaves} />
           <RouteWithSidebar exact path="/newleave" component={AddLeave} />
 
