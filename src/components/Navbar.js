@@ -72,7 +72,7 @@ export default (props) => {
             <Dropdown as={Nav.Item}>
               <Dropdown.Toggle as={Nav.Link} className="pt-1 px-0">
                 <div className="media d-flex align-items-center">
-                  <Image src={"http://localhost:3000/uploads/" + decoded?.image} className="user-avatar md-avatar rounded-circle" />
+                  <Image src={process.env.REACT_APP_BACKEND_URL + "/uploads/" + decoded?.image} className="user-avatar md-avatar rounded-circle" />
                   <div className="media-body ms-2 text-dark align-items-center d-none d-lg-block">
                     <span className="mb-0 font-small fw-bold">{decoded?.name}  </span>
                   </div>

@@ -48,7 +48,7 @@ export const Leaves = () => {
   const fetchData = async () => {
     try {
       const { data: response } = await axios.get(
-        "http://localhost:3000/users/getleaves/" + decoded._id
+        process.env.REACT_APP_BACKEND_URL + "/users/getleaves/" + decoded._id
       );
       setLeaves(response);
       console.log(response);
@@ -60,7 +60,7 @@ export const Leaves = () => {
   const fetchAdminData = async () => {
     try {
       const { data: response } = await axios.get(
-        "http://localhost:3000/users/getallleaves"
+        process.env.REACT_APP_BACKEND_URL + "/users/getallleaves"
       );
       setLeaves(response);
       console.log(response);
@@ -98,7 +98,7 @@ export const Leaves = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .put("http://localhost:3000/users/approveleave/" + id, {
+          .put(process.env.REACT_APP_BACKEND_URL + "/users/approveleave/" + id, {
             status: status,
           })
           .then((res) => {
@@ -124,7 +124,7 @@ export const Leaves = () => {
         </Modal.Header>
         <Modal.Body>
           <img
-            src={"http://localhost:3000/uploads/" + image}
+            src={process.env.REACT_APP_BACKEND_URL + "/uploads/" + image}
             style={{ width: "100%" }}
           />
         </Modal.Body>

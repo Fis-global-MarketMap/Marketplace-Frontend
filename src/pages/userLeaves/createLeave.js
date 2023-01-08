@@ -54,7 +54,7 @@ export default function AddLeave() {
       showLoaderOnConfirm: true,
       preConfirm: async () => {
         return await axios
-          .post("http://localhost:3000/users/addleave", mydata)
+          .post(process.env.REACT_APP_BACKEND_URL + "/users/addleave", mydata)
           .then((result) => {
             Swal.fire({
               position: "center",

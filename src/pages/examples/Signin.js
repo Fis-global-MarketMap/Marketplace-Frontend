@@ -37,7 +37,7 @@ export default () => {
     console.log("email", email);
     console.log("password", password);
    await axios
-      .post("http://localhost:3000/users/login", {
+      .post(process.env.REACT_APP_BACKEND_URL + "/users/login", {
         email: email,
         password: password,
       })

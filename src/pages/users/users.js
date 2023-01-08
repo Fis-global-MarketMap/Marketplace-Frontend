@@ -41,7 +41,7 @@ export const Users = () => {
     const fetchData = async () => {
       try {
         const { data: response } = await axios.get(
-          "http://localhost:3000/users/all"
+          process.env.REACT_APP_BACKEND_URL + "/users/all"
         );
         setUsers(response);
       } catch (error) {
@@ -64,9 +64,9 @@ export const Users = () => {
         confirmButtonText: "Yes, delete it!",
       }).then(async (result) => {
         if (result.isConfirmed) {
-          await axios.delete(`http://localhost:3000/users/delete/${id}`);
+          await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/users/delete/${id}`);
           const { data: response } = await axios.get(
-            "http://localhost:3000/users/all"
+            process.env.REACT_APP_BACKEND_URL + "/users/all"
           );
           setUsers(response);
           Swal.fire("Deleted!", "Your file has been deleted.", "success");
@@ -133,7 +133,7 @@ export const Users = () => {
                   <td>
                     {user?.image ? (
                       <Image
-                        src={"http://localhost:3000/uploads/" + user?.image}
+                        src={process.env.REACT_APP_BACKEND_URL + "/uploads/" + user?.image}
                         className="user-avatar rounded-circle"
                       />
                     ) : (

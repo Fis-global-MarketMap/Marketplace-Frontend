@@ -87,7 +87,7 @@ export default function Profile() {
 
   function getProfile() {
     axios
-      .get("http://localhost:3000/users/getprofile/" + id)
+      .get(process.env.REACT_APP_BACKEND_URL + "/users/getprofile/" + id)
       .then((response) => {
         console.log(response);
         setProfile(response?.data);
@@ -143,7 +143,7 @@ export default function Profile() {
           formData.skills = profile.skills;
         }
         axios
-          .put("http://localhost:3000/users/updateprofile/" + id, formData)
+          .put(process.env.REACT_APP_BACKEND_URL + "/users/updateprofile/" + id, formData)
           .then((response) => {
             console.log(response);
             Swal.fire("Updated!", "Your profile has been updated.", "success");
@@ -169,7 +169,7 @@ export default function Profile() {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .post("http://localhost:3000/users/addexperience/" + id, timeLine)
+          .post(process.env.REACT_APP_BACKEND_URL + "/users/addexperience/" + id, timeLine)
           .then((response) => {
             console.log(response);
             Swal.fire("Added!", "Your experience has been added.", "success");
@@ -393,7 +393,7 @@ export default function Profile() {
                 <Card.Body className="pb-5">
                   <Card.Img
                     src={
-                      "http://localhost:3000/uploads/" + profile?.user?.image
+                      process.env.REACT_APP_BACKEND_URL + "/uploads/" + profile?.user?.image
                     }
                     alt={profile?.user?.name}
                     className="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4"
