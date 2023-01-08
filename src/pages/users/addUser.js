@@ -58,7 +58,7 @@ export const AddUser = () => {
       showLoaderOnConfirm: true,
       preConfirm: async () => {
         return await axios
-          .post("http://localhost:3000/users/adduser", mydata)
+          .post(process.env.REACT_APP_BACKEND_URL + "/users/adduser", mydata)
           .then((result) => {
             Swal.fire({
               position: "center",

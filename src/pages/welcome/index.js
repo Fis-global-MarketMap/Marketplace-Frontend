@@ -59,7 +59,7 @@ export default () => {
       password: Password,
     };
     await axios
-      .post("http://localhost:3000/users/resetpasswordrequest", mydata)
+      .post(process.env.REACT_APP_BACKEND_URL + "/users/resetpasswordrequest", mydata)
       .then((response) => {
         Swal.fire({
           position: "center",
