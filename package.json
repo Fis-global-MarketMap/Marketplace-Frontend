@@ -1,6 +1,6 @@
 {
-  "name": "@Dhaker12/TMA-dashboard",
-  "description": "TMA Dashboard is a Team management Application for 3S Employee ",
+  "name": "@Dhaker12/FIS-MARKET-PLACE",
+  "description": "FIS MARKET PLACE ",
   "author": "Dhaker",
   "keywords": [
     "bootstrap 5",
@@ -17,7 +17,7 @@
   "homepage": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Dhaker12/3S-Front"
+    "url": "https://github.com/Fis-global-MarketMap/Marketplace-Frontend.git"
   },
   "version": "1.0.1",
   "dependencies": {
