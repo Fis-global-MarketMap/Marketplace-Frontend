@@ -1,6 +1,6 @@
 {
-  "name": "@Dhaker12/TMA-dashboard",
-  "description": "TMA Dashboard is a Team management Application for 3S Employee ",
+  "name": "@Dhaker12/FIS-MARKET-PLACE",
+  "description": "FIS MARKET PLACE ",
   "author": "Dhaker",
   "keywords": [
     "bootstrap 5",
@@ -17,7 +17,7 @@
   "homepage": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Dhaker12/3S-Front"
+    "url": "https://github.com/Fis-global-MarketMap/Marketplace-Frontend.git"
   },
   "version": "1.0.1",
   "dependencies": {
@@ -33,12 +33,12 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@themesberg/react-bootstrap": "^1.4.1",
-    "axios": "^1.1.3",
+    "axios": "^1.6.8",
     "bootstrap": "5.0.0-beta1",
     "chartist": "^0.11.4",
     "chartist-plugin-tooltips-updated": "^0.1.4",
     "jwt-decode": "^3.1.2",
-    "moment-timezone": "^0.5.31",
+    "moment-timezone": "^0.5.45",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-chartist": "^0.14.4",
@@ -79,5 +79,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": ["lcov"]
   }
 }
