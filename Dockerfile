@@ -2,7 +2,8 @@ FROM node:14-alpine AS builder
 WORKDIR /app
 COPY package.json ./
 COPY yarn.lock ./
-RUN yarn install 
+RUN yarn cache clean
+RUN yarn install --verbose
 COPY . .
 RUN yarn build
 
