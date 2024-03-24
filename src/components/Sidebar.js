@@ -18,6 +18,7 @@ import {
   faInbox,
   faRocket,
   faUser,
+  faDatabase,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   Nav,
@@ -36,12 +37,13 @@ import ThemesbergLogo from "../assets/img/themesberg.svg";
 import ReactHero from "../assets/img/technologies/react-hero-logo.svg";
 import ProfilePicture from "../assets/img/team/profile-picture-3.jpg";
 import Logo from "../assets/img/logo.png";
+import { useHistory } from "react-router-dom";
 export default (props = {}) => {
   const location = useLocation();
   const { pathname } = location;
   const [show, setShow] = useState(false);
   const showClass = show ? "show" : "";
-
+  const history = useHistory()
   const onCollapse = () => setShow(!show);
 
   const CollapsableNavItem = (props) => {
@@ -187,15 +189,19 @@ export default (props = {}) => {
             {decoded?.role === "superAdmin" ? (
               <Nav className="flex-column pt-3 pt-md-0">
                 <img src={Logo} alt="logo" className="logo" />
-                <Button className="mt-3 mb-3"  variant="warning">3S- Team Managment APP</Button>
-                
+                <Button onClick={
+                  () => history.push("/pres")
+                } className="mt-3 mb-3" variant="warning">3S- Team Managment APP</Button>
+                <NavItem title="Dashboard" link="/dashboard-fis" icon={faDatabase} />
+
                 <NavItem title="Users" link="/Users" icon={faUsers} />
                 <NavItem title="Leaves" link="/leaves" icon={faCalendarAlt} />
+
               </Nav>
             ) : decoded?.role === "Employee" ? (
               <Nav className="flex-column pt-3 pt-md-0">
                 <img src={Logo} alt="logo" className="logo" />
-                <Button className="mb-2 mt-2"  variant="warning">3S- Team Managment APP</Button>
+                <Button className="mb-2 mt-2" variant="warning">3S- Team Managment APP</Button>
                 <NavItem title="Leaves" link="/leaves" icon={faCalendarAlt} />
                 <NavItem title="My profile" link="/profile" icon={faUser} />
               </Nav>
@@ -204,7 +210,7 @@ export default (props = {}) => {
                 <img src={Logo} alt="logo" className="logo" />
               </Nav>
             )}
-            
+
           </div>
         </SimpleBar>
       </CSSTransition>

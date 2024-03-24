@@ -19,6 +19,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Preloader from "../components/Preloader";
 
+import Dashboard from "./dashboard-fis-marketMap";
+
 
 import jwt_decode from "jwt-decode";
 import { Users } from "./users/users";
@@ -105,7 +107,7 @@ export default function muRoutes() {
           <RouteWithSidebar
             exact
             path={"/"}
-            component={Users}
+            component={Dashboard}
           />
           <RouteWithLoader exact path={Routes.Signin.path} component={Signin} />
           <RouteWithLoader exact path={Routes.Signup.path} component={Signup} />
@@ -133,20 +135,23 @@ export default function muRoutes() {
           />
 
           {/* pages */}
-          
+
 
           {/* documentation */}
-          
+
           <RouteWithSidebar path={"/users"} component={Users} />
           <RouteWithSidebar path={"/adduser"} component={AddUser} />
-        
+          <RouteWithSidebar path={"/dashboard-fis"} component={Dashboard} />
+
+
           <RouteWithSidebar exact path="/leaves" component={Leaves} />
-          
+
           <RouteWithSidebar
             exact
             path="/profile/:id"
             component={Profile}
           />
+          <RouteWithSidebar exact path={"/pres"} component={Home} />
 
           <Redirect to={Routes.NotFound.path} />
         </Switch>
