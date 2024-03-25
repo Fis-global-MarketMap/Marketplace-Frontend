@@ -151,7 +151,7 @@ export default function muRoutes() {
             path="/profile/:id"
             component={Profile}
           />
-          <RouteWithSidebar exact path={"/pres"} component={Home} />
+          <RouteWithSidebar exact path={"/pres"} component={Dashboard} />
 
           <Redirect to={Routes.NotFound.path} />
         </Switch>

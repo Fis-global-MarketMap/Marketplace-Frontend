@@ -42,7 +42,7 @@ export default (props) => {
                 target="_blank"
                 className="text-blue text-decoration-none fw-normal"
               >
-                3S
+                fis-SunGard
               </Card.Link>
             </p>
           </Col>
