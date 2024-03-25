@@ -46,7 +46,7 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Swal from "sweetalert2";
 // import github icon
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import ProfileCover from "../../assets/img/profile-cover.jpg";
+import ProfileCover from "../../assets/img/fis-cover.jpg";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import Chip from "@material-ui/core/Chip";
@@ -309,7 +309,7 @@ export default function Profile() {
                           {...params}
                           variant="standard"
                           label="Skills"
-                          placeholder="Skill"
+                          placeholder="Skill" 
                         />
                       )}
                       onChange={(e, val) => {
@@ -359,7 +359,7 @@ export default function Profile() {
                           </Typography>
                         </TimelineOppositeContent>
                         <TimelineSeparator>
-                          <TimelineDot style={{ backgroundColor: "orange" }}>
+                          <TimelineDot style={{ backgroundColor: "#4ccd3f" }}>
                             <BusinessCenter />
                           </TimelineDot>
                           <TimelineConnector />
@@ -442,7 +442,7 @@ export default function Profile() {
                     <Chip
                       label={skill?.name}
                       style={{
-                        backgroundColor: "orange",
+                        backgroundColor: "#4ccd3f",
                         margin: "5px",
                       }}
                     />
