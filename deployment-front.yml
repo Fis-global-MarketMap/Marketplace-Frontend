@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-tma2
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: front-tma2
+    spec:
+      containers:
+        - name: react-docker
+          image: dhakerkarous/react-docker:latest
+          ports:
+            - containerPort: 80
+              name: http-port
+  selector:
+    matchLabels:
+      app: front-tma2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-tma2
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: http-port
+      nodePort: 32321 
+  selector:
+    app: front-tma2
+  
