@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package.json ./
 COPY yarn.lock ./
 RUN yarn cache clean
-RUN yarn install --verbose
+RUN yarn install 
 COPY . .
 RUN yarn build
 
