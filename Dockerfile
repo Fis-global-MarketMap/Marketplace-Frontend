@@ -1,9 +1,8 @@
 FROM node:14-alpine AS builder
 WORKDIR /app
-COPY package.json ./
-COPY yarn.lock ./
+COPY package.json yarn.lock ./
 RUN yarn cache clean
-RUN yarn install 
+RUN npm install 
 COPY . .
 RUN yarn build
 
