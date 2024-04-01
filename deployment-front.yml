@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: front-tma2
+  name: front-fis-marketmap
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: front-tma2
+        app: front-fis-marketmap
     spec:
       containers:
         - name: react-docker
@@ -15,14 +15,20 @@ spec:
           ports:
             - containerPort: 80
               name: http-port
+          env:
+            - name: REACT_APP_BACKEND_URL
+              valueFrom:
+                secretKeyRef:
+                  name: my-secrets-front
+                  key: REACT_APP_BACKEND_URL
   selector:
     matchLabels:
-      app: front-tma2
+      app: front-fis-marketmap
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: front-tma2
+  name: front-fis-marketmap
 spec:
   type: NodePort
   ports:
@@ -31,5 +37,5 @@ spec:
       targetPort: http-port
       nodePort: 32321 
   selector:
-    app: front-tma2
+    app: front-fis-marketmap
   
