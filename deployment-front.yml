@@ -15,12 +15,6 @@ spec:
           ports:
             - containerPort: 80
               name: http-port
-          env:
-            - name: REACT_APP_BACKEND_URL
-              valueFrom:
-                secretKeyRef:
-                  name: my-secrets-front
-                  key: REACT_APP_BACKEND_URL
   selector:
     matchLabels:
       app: front-fis-marketmap
