@@ -1,17 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: front-tma2
+  name: front-fis
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
-        app: front-tma2
+        app: front-fis
     spec:
       containers:
         - name: react-docker
           image: dhakerkarous/react-docker:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
               name: http-port
@@ -23,12 +24,12 @@ spec:
                   key: REACT_APP_BACKEND_URL
   selector:
     matchLabels:
-      app: front-tma2
+      app: front-fis
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: front-tma2
+  name: front-fis
 spec:
   type: NodePort
   ports:
@@ -37,4 +38,4 @@ spec:
       targetPort: http-port
       nodePort: 32321 
   selector:
-    app: front-tma2
+    app: front-fis
