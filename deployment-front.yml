@@ -19,7 +19,7 @@ spec:
             - name: REACT_APP_BACKEND_URL
               valueFrom:
                 secretKeyRef:
-                  name: my-secrets
+                  name: my-secrets-front
                   key: REACT_APP_BACKEND_URL
   selector:
     matchLabels:
@@ -38,4 +38,3 @@ spec:
       nodePort: 32321 
   selector:
     app: front-tma2
-  
